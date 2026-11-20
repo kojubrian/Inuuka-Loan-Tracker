@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Client | Inuuka Loan Tracker</title>
+</head>
+<body>
+
+    <h1>Register New Client</h1>
+
+    <% if (error) { %>
+        <p style="color: red;">
+            <%= error %>
+        </p>
+    <% } %>
+
+    <% if (success) { %>
+        <p style="color: green;">
+            <%= success %>
+        </p>
+    <% } %>
+
+    <form action="/clients/register" method="POST">
+
+        <div>
+            <label for="clientNumber">Client Number</label>
+
+            <input
+                type="text"
+                id="clientNumber"
+                name="clientNumber"
+                value="<%= formData.clientNumber || '' %>"
+                required
+            >
+        </div>
+
+        <div>
+            <label for="clientName">Client Name</label>
+
+            <input
+                type="text"
+                id="clientName"
+                name="clientName"
+                value="<%= formData.clientName || '' %>"
+                required
+            >
+        </div>
+
+        <button type="submit">Register Client</button>
+
+    </form>
+
+</body>
+</html>
